@@ -27,7 +27,7 @@ export default function Home() {
 
         <div className="bg-violet-100 rounded-xl p-6 shadow-brutal border border-black">
             <h2 className="text-3xl font-bold tracking-wider mb-4">Acquista</h2>
-            <div className="grid grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div className="border border-black rounded-xl p-4 shadow-brutal bg-white">
                     <div className="h-72 bg-gray-300 rounded-lg mb-2"></div>
                     <h3 className="text-lg font-bold">Prodotto</h3>
