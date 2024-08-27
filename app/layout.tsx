@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Chicle } from "next/font/google";
+import { Chicle, Jost, Outfit } from "next/font/google";
 import "./globals.css";
 
-const chicle = Chicle({ weight: '400', subsets: ['latin'] });
+const chicle = Chicle({ weight: '400', subsets: ['latin'], variable: '--font-chickle' });
+const jost = Jost({ subsets: ['latin'], variable: '--font-jost' });
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 export const metadata: Metadata = {
   title: "Amaro Amaurio",
@@ -16,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={chicle.className}>{children}</body>
+      <body className={`${chicle.variable} ${jost.variable} ${outfit.variable}`}>{children}</body>
     </html>
   );
 }
