@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import { LuMail, LuInstagram } from "react-icons/lu";
 import { TbBrandTiktok } from "react-icons/tb";
-
-export const metadata: Metadata = {
-  title: "Test",
-  description: "Amaro Amaurio",
-};
+import { VscChromeClose } from "react-icons/vsc";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(true);
+
   return (
     <>
         <div className="bg-[#fecb04] min-h-screen px-4 md:px-32 pt-6">
@@ -25,11 +25,22 @@ export default function RootLayout({
                         <li><a href="#ricetta">La ricetta</a></li>
                         <li><a href="#acquista">Acquista</a></li>
                     </ul>
-                    <button type="button" className="md:hidden">
+                    <button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
                     </button>
+                </nav>
+                <nav className={`md:hidden fixed top-0 right-0 h-full w-96 z-50 bg-amber-100 border-l border-black pl-6 py-6 translate-x-96 flex flex-col transition-all duration-500 ${mobileMenuOpen ? '!translate-x-0' : ''}`}>
+                    <button className="rounded-full bg-white border border-black w-12 h-12 text-xl flex justify-center items-center shadow-brutal mb-4 place-self-end mr-24" onClick={() => setMobileMenuOpen(false)}>
+                        <VscChromeClose />
+                    </button>
+                    <ul className="flex flex-col font-normal tracking-wider space-y-4 text-2xl">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#storia">La storia</a></li>
+                        <li><a href="#ricetta">La ricetta</a></li>
+                        <li><a href="#acquista">Acquista</a></li>
+                    </ul>
                 </nav>
             </header>
             <main className="pb-12">{children}</main>
