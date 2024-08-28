@@ -32,7 +32,7 @@ export default function RootLayout({
                     </button>
                 </nav>
                 <nav className={`md:hidden fixed top-0 right-0 h-full z-50 bg-amber-100 border-l border-black pl-6 py-6 flex flex-col transition-all duration-500 ${mobileMenuOpen ? '!translate-x-0' : ''}`} style={{ width: '400px', transform: 'translateX(400px)'}}>
-                    <button className="rounded-full bg-white border border-black w-12 h-12 text-xl flex justify-center items-center shadow-brutal mb-4 place-self-end mr-24" onClick={() => setMobileMenuOpen(false)}>
+                    <button className="rounded-full bg-white border border-black w-12 h-12 text-xl flex justify-center items-center shadow-brutal mb-4 place-self-end mr-24" onClick={() => setMobileMenuOpen(false)} aria-label="Chiudi menu">
                         <VscChromeClose />
                     </button>
                     <ul className="flex flex-col font-normal tracking-wider space-y-4 text-2xl">
@@ -58,8 +58,8 @@ export default function RootLayout({
                 <div>
                     <h3 className="text-xl font-bold uppercase mb-4 font-outfit">Seguici</h3>
                     <div className="flex gap-4 text-6xl">
-                        <Link href="#" className="hover:text-pink-500 transition-all duration-300 cursor-pointer"><LuInstagram /></Link>
-                        <Link href="#" className="hover:text-pink-500 transition-all duration-300 cursor-pointer"><TbBrandTiktok /></Link>
+                        <Link href="#" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Instagram"><LuInstagram /></Link>
+                        <Link href="#" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Tiktok"><TbBrandTiktok /></Link>
                     </div>
                 </div>
             </div>
