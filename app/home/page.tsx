@@ -7,6 +7,7 @@ import groovySmiley from '../../public/images/groovy-smiley.svg';
 import groovyHeart from '../../public/images/groovy-heart.svg';
 import groovyMessage from '../../public/images/groovy-message.svg';
 import groovyStarSun from '../../public/images/groovy-star-sun.svg';
+import Game from "../components/game";
 
 export default function Home() {
     const section = {
@@ -110,6 +111,11 @@ export default function Home() {
                 <Image src={groovyMessage} alt="Groovy Message" className="md:max-w-64 hover:scale-110 transition-all duration-500 mx-auto px-4" />
                 <Image src={groovyStarSun} alt="Groovy Star Sun" className="md:max-w-64 hover:scale-110 transition-all duration-500 mx-auto px-4" />
             </motion.div>
+
+            <motion.section className="bg-gray-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="gioca" variants={section} initial="hiddenLeft" whileInView="visible" viewport={{ once: true }}>
+                <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Gioca</h2>
+                <Game />
+            </motion.section>
         </>
     );
 }
