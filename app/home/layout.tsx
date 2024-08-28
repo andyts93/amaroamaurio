@@ -20,10 +20,10 @@ export default function RootLayout({
                 <nav className="bg-[#fff97b] px-12 py-8 rounded-full border border-black shadow-brutal-md flex justify-between items-center">
                     <h1 className="text-4xl font-bold text-[#0a162a] uppercase">Amaurio</h1>
                     <ul className="hidden md:flex gap-6 font-light tracking-wider text-[#0a162a]">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#storia">La storia</a></li>
-                        <li><a href="#ricetta">La ricetta</a></li>
-                        <li><a href="#acquista">Acquista</a></li>
+                        <li><a href="#home" aria-label="Homepage">Home</a></li>
+                        <li><a href="#storia" aria-label="La storia">La storia</a></li>
+                        <li><a href="#ricetta" aria-label="La ricetta">La ricetta</a></li>
+                        <li><a href="#acquista" aria-label="Acquista">Acquista</a></li>
                     </ul>
                     <button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -36,10 +36,10 @@ export default function RootLayout({
                         <VscChromeClose />
                     </button>
                     <ul className="flex flex-col font-normal tracking-wider space-y-4 text-2xl">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#storia">La storia</a></li>
-                        <li><a href="#ricetta">La ricetta</a></li>
-                        <li><a href="#acquista">Acquista</a></li>
+                        <li><a href="#home" aria-label="Homepage">Home</a></li>
+                        <li><a href="#storia" aria-label="La storia">La storia</a></li>
+                        <li><a href="#ricetta" aria-label="La ricetta">La ricetta</a></li>
+                        <li><a href="#acquista" aria-label="Acquista">Acquista</a></li>
                     </ul>
                 </nav>
             </header>
