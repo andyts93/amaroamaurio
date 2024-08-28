@@ -11,7 +11,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(true);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
@@ -31,7 +31,7 @@ export default function RootLayout({
                         </svg>
                     </button>
                 </nav>
-                <nav className={`md:hidden fixed top-0 right-0 h-full w-96 z-50 bg-amber-100 border-l border-black pl-6 py-6 translate-x-96 flex flex-col transition-all duration-500 ${mobileMenuOpen ? '!translate-x-0' : ''}`}>
+                <nav className={`md:hidden fixed top-0 right-0 h-full z-50 bg-amber-100 border-l border-black pl-6 py-6 flex flex-col transition-all duration-500 ${mobileMenuOpen ? '!translate-x-0' : ''}`} style={{ width: '400px', transform: 'translateX(400px)'}}>
                     <button className="rounded-full bg-white border border-black w-12 h-12 text-xl flex justify-center items-center shadow-brutal mb-4 place-self-end mr-24" onClick={() => setMobileMenuOpen(false)}>
                         <VscChromeClose />
                     </button>
