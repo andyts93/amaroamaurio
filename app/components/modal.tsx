@@ -50,7 +50,7 @@ export default function Modal({ children, open, onClose }: Readonly<{ children: 
         <AnimatePresence>
             {open && (
                 <motion.div className="fixed inset-0 bg-gray-600 bg-opacity-50 backdrop-blur overflow-y-auto h-full w-full flex items-center justify-center z-50" variants={backdropVariant} initial="hidden" animate="visible" exit="hidden">
-                    <motion.div className="mx-8 relative max-w-96 bg-white border border-black rounded-xl shadow-brutal p-6" variants={modalVariant} initial="hidden" animate="visible" exit="hidden">
+                    <motion.div className="mx-8 relative max-w-xl bg-white border border-black rounded-xl shadow-brutal p-6" variants={modalVariant} initial="hidden" animate="visible" exit="hidden">
                         <button className="absolute -top-4 -right-4 bg-white rounded-full p-2 shadow-brutal-sm border border-black" onClick={() => onClose(false)} aria-label="Chiudi">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

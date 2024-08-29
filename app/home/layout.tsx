@@ -10,6 +10,7 @@ import { getCookie, setCookie } from "cookies-next";
 import Modal from "../components/modal";
 import Image from "next/image";
 import groovySmileFlower from "../../public/images/groovy-smile-flower.svg";
+import diagramma from "../../public/images/diagramma.svg";
 
 export default function RootLayout({
   children,
@@ -19,11 +20,16 @@ export default function RootLayout({
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [cookieBannerOpen, setCookieBannerOpen] = useState(false);
     const [fakeAccepted, setFakeAccepted] = useState(false);
-    const [modalOpen, setModalOpen] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [beviModalOpen, setBeviModalOpen] = useState(false);
 
     useEffect(() => {
         if (!getCookie('cookieBanner')) {
             setCookieBannerOpen(true);
+        }
+        if (!getCookie('newsletterModal')) {
+            setModalOpen(true);
+            setCookie('newsletterModal', 'seen', { maxAge: 60 * 60 * 24 * 7 });
         }
     }, []);
 
@@ -42,7 +48,7 @@ export default function RootLayout({
         <Modal open={modalOpen} onClose={setModalOpen}>
             <h3 className="text-3xl font-bold font-outfit bg-gradient-to-br from-yellow-500 to-pink-500 bg-clip-text text-transparent mb-4">Iscriviti alla nostra newsletter (?)</h3>
             <Image src={groovySmileFlower} alt="Groovy smile flower" className="w-32 mx-auto mb-4" />
-            <p className="text-lg mb-4 text-justify">Non abbiamo un campaign manager, quindi non riceverete email <span className="italic font-light">(non salviamo nemmeno l`&apos;indirizzo che inserite)</span> però <span className="underline">faffigo</span> avere il popup.</p>
+            <p className="text-lg mb-4 text-justify">Non abbiamo un campaign manager, quindi non riceverete email <span className="italic font-light">(non salviamo nemmeno l&apos;indirizzo che inserite)</span> però <span className="underline">faffigo</span> avere il popup.</p>
             <div className="flex flex-col gap-4">
                 <input type="email" placeholder="Inserisci la tua email" className="border border-black rounded-full py-2 px-4 w-full shadow-brutal-sm" />
                 <label>
@@ -51,6 +57,13 @@ export default function RootLayout({
                 </label>
                 <button className="bg-green-500 border border-black text-white px-4 py-2 rounded-full shadow-brutal-sm shadow-black uppercase" onClick={() => setModalOpen(false)}>Facciamolo!</button>
             </div>
+        </Modal>
+        <Modal open={beviModalOpen} onClose={setBeviModalOpen}>
+            <h3 className="text-3xl font-bold font-outfit bg-gradient-to-br from-yellow-500 to-pink-500 bg-clip-text text-transparent mb-4 flex items-center">
+                Bevi responsabilmente
+            </h3>
+            <p className="text-justify text-lg mb-4">Noi di <span className="font-chicle">Amaro Amaurio</span><sup>&reg;</sup> teniamo alla vostra salute, ecco delle semplici regole per gustarvi il nostro amaro.</p>
+            <Image src={diagramma} alt="Diagramma Amaurio" className="mx-auto" />
         </Modal>
         <div className="bg-[#fecb04] min-h-screen px-4 md:px-32 pt-6">
             <header className="mb-12">
@@ -114,6 +127,9 @@ export default function RootLayout({
             }
             
         </motion.div>)}
+        <div className="fixed bottom-0 right-0 transform translate-x-24 -translate-y-16 -rotate-45 bg-red-500 text-white py-2 px-24 border border-black shadow-brutal shadow-black text-xl cursor-pointer" onClick={() => setBeviModalOpen(true)}>
+            Bevi responsabilmente
+        </div>
         <footer className="border-t border-black bg-amber-100 px-4 md:px-32 py-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
