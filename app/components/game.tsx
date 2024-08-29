@@ -32,8 +32,8 @@ export default function Game() {
 
     return (
         <>
-            <p className="text-lg">Clicca sul bicchiere per cominciare a riempirlo, batti il tuo record!</p>
-            <h3 className="text-2xl font-bold font-outfit text-right">Time: {(elapsedTime / 1000).toFixed(2)}s</h3>
+            <p className="text-lg mb-2">Clicca sul bicchiere per cominciare a riempirlo, batti il tuo record!</p>
+            <h3 className="text-2xl font-bold font-outfit text-right">Tempo: {(elapsedTime / 1000).toFixed(2)}s</h3>
             <div className="flex justify-center">
                 <svg
                     className="fill-amber-800"

@@ -8,6 +8,7 @@ import groovyHeart from '../../public/images/groovy-heart.svg';
 import groovyMessage from '../../public/images/groovy-message.svg';
 import groovyStarSun from '../../public/images/groovy-star-sun.svg';
 import Game from "../components/game";
+import Testimonial from "../components/testimonial";
 
 export default function Home() {
     const section = {
@@ -106,7 +107,7 @@ export default function Home() {
                 </div>
             </motion.section>
 
-            <motion.div variants={divider} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-8 grid grid-cols-3 md:gap-12 overflow-hidden">
+            <motion.div variants={divider} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-8 grid grid-cols-3 md:gap-12 overflow-hidden" id="gioca">
                 <Image src={groovyHeart} alt="Groovy Heart" className="md:max-w-64 hover:scale-110 transition-all duration-500 mx-auto px-4" />
                 <Image src={groovyMessage} alt="Groovy Message" className="md:max-w-64 hover:scale-110 transition-all duration-500 mx-auto px-4" />
                 <Image src={groovyStarSun} alt="Groovy Star Sun" className="md:max-w-64 hover:scale-110 transition-all duration-500 mx-auto px-4" />
@@ -115,6 +116,16 @@ export default function Home() {
             <motion.section className="bg-gray-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="gioca" variants={section} initial="hiddenLeft" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Gioca</h2>
                 <Game />
+            </motion.section>
+
+            <motion.section className="bg-pink-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="gioca" variants={section} initial="hiddenLeft" whileInView="visible" viewport={{ once: true }}>
+                <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Dicono di noi</h2>
+                <div className="grid gap-4 md:grid-cols-4 md:gap-6">
+                    <Testimonial gender="boy" name="Mario" />
+                    <Testimonial gender="boy" name="Piero" />
+                    <Testimonial gender="girl" name="Maria" />
+                    <Testimonial gender="girl" name="Piera" />
+                </div>
             </motion.section>
         </>
     );
