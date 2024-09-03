@@ -68,7 +68,7 @@ export default function RootLayout({
         <div className="bg-[#fecb04] min-h-screen px-4 md:px-32 pt-6">
             <header className="mb-12">
                 <nav className="bg-[#fff97b] px-12 py-8 rounded-full border border-black shadow-brutal-md flex justify-between items-center">
-                    <h1 className="text-4xl font-bold text-[#0a162a] uppercase">Amaurio</h1>
+                    <h1 className="text-4xl font-bold text-[#0a162a] uppercase font-theseasons">Amaurio</h1>
                     <ul className="hidden md:flex gap-6 font-light tracking-wider text-[#0a162a] text-xl">
                         <li><a href="#home" aria-label="Homepage" className="hover:text-red-600 hover:font-bold transition-all duration-500">Home</a></li>
                         <li><a href="#storia" aria-label="La storia" className="hover:text-red-600 hover:font-bold transition-all duration-500">La storia</a></li>
@@ -113,7 +113,7 @@ export default function RootLayout({
             </header>
             <main className="pb-12">{children}</main>
         </div>
-        {cookieBannerOpen && (<motion.div className="fixed bottom-0 left-0 right-0 p-4 bg-[#0a162a] flex flex-col md:flex-row justify-center items-center gap-4" initial={{ y: '8rem', opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { duration: 0.3, ease: 'easeInOut' } }}>
+        {cookieBannerOpen && (<motion.div className="fixed bottom-0 left-0 right-0 p-4 bg-[#0a162a] flex flex-col md:flex-row justify-center items-center gap-4 z-10" initial={{ y: '8rem', opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { duration: 0.3, ease: 'easeInOut' } }}>
             {fakeAccepted ? 
                 <>
                     <p className="text-white text-xl text-center md:text-left">In realtà per salvare la vostra preferenza abbiamo dovuto usarli, ora dovete accettarli davvero.</p>
@@ -133,17 +133,18 @@ export default function RootLayout({
         <footer className="border-t border-black bg-amber-100 px-4 md:px-32 py-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
-                    <h2 className="text-4xl font-bold uppercase mb-4">Amaurio</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie enim vitae sem facilisis aliquam.</p>
+                    <h2 className="text-4xl font-bold uppercase mb-4 font-theseasons">Amaurio</h2>
+                    <p>Se c’è una cosa che Amaurio sa fare bene, è farsi notare. Ti aspetti che sia un amaro qualsiasi? <span className="underline">Svegliati</span>.</p>
                 </div>
                 <div>
                     <h3 className="text-xl font-bold uppercase mb-4 font-outfit">Contatti</h3>
-                    <p className="flex gap-2 items-center"><LuMail />hello@amaroamaurio.it</p>
+                    {/* <p className="flex gap-2 items-center"><LuMail />hello@amaroamaurio.it</p> */}
+                    <p>Trovaci se ci riesci</p>
                 </div>
                 <div>
                     <h3 className="text-xl font-bold uppercase mb-4 font-outfit">Seguici</h3>
                     <div className="flex gap-4 text-6xl">
-                        <Link href="#" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Instagram"><LuInstagram /></Link>
+                        <Link href="https://www.instagram.com/amaroamaurio/" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Instagram" target="_blank" rel="nofollow"><LuInstagram /></Link>
                         <Link href="#" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Tiktok"><TbBrandTiktok /></Link>
                     </div>
                 </div>
