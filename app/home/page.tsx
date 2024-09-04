@@ -55,7 +55,7 @@ export default function Home() {
                 <div className="flex flex-col md:flex-row gap-12">
                     <div className="md:w-2/3 text-justify">
                     <h3 className="font-outfit font-bold text-xl mb-1">Amaro Amaurio: Come Nasce una Leggenda</h3>
-                        <p className="mb-1">Nel cuore di una città che non dorme mai è nato qualcosa di diverso, qualcosa che sfida le regole e ride in faccia alle convenzioni. L'Amaro Amaurio non è solo un amaro, è un'idea, una filosofia, un manifesto per chi non si accontenta del solito, per chi vuole qualcosa di vero, senza filtri.</p>
+                        <p className="mb-1">Nel cuore di una città che non dorme mai è nato qualcosa di diverso, qualcosa che sfida le regole e ride in faccia alle convenzioni. L&apos;Amaro Amaurio non è solo un amaro, è un&apos;idea, una filosofia, un manifesto per chi non si accontenta del solito, per chi vuole qualcosa di vero, senza filtri.</p>
                         <p>Amaurio è un personaggio fuori dagli schemi: il business-man che di giorno affronta le sfide del quotidiano, e di sera diventa un anti-eroe ribelle, senza rimpianti.</p>
 
                         <hr className="my-4 border-amber-500 mx-48" />
@@ -67,7 +67,7 @@ export default function Home() {
                         <hr className="my-4 border-amber-500 mx-48" />
                         
                         <h3 className="font-outfit font-bold text-xl mb-1">Il Manifesto di Amaurio</h3>
-                        <p className="mb-1">Amaurio ti invita ad essere audace. Un messaggio chiaro e diretto, come il linguaggio che usano i ragazzi che l'hanno creato, e come la vita stessa dovrebbe essere vissuta.</p>
+                        <p className="mb-1">Amaurio ti invita ad essere audace. Un messaggio chiaro e diretto, come il linguaggio che usano i ragazzi che l&apos;hanno creato, e come la vita stessa dovrebbe essere vissuta.</p>
                         
                         <p className="mb-1">Non si parla solo di un amaro ma di un modo di essere, di dire no a ciò che è scontato, di vivere con passione e intensità. Amaurio è il compagno perfetto per notti lunghe e discorsi profondi, per risate sincere e silenzi condivisi. È il simbolo di una generazione che non si accontenta della banalità.</p>
                     </div>
@@ -85,7 +85,7 @@ export default function Home() {
 
             <motion.section className="bg-sky-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="ricetta" variants={section} initial="hiddenRight" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">La Ricetta: Il segreto ribelle</h2>
-                <p className="mb-4 italic text-xl font-light"><span className="text-3xl">"</span>Se c’è una cosa che Amaurio sa fare bene, è farsi notare. Ti aspetti che sia un amaro qualsiasi? <span className="underline">Svegliati</span>.<span className="text-3xl">"</span></p>
+                <p className="mb-4 italic text-xl font-light"><span className="text-3xl">&quot;</span>Se c&apos;è una cosa che Amaurio sa fare bene, è farsi notare. Ti aspetti che sia un amaro qualsiasi? <span className="underline">Svegliati</span>.<span className="text-3xl">&quot;</span></p>
 
                 <p className="mb-2">Affronta un’esplosione di sapori che colpisce e affascina, senza mai passare inosservata. Ogni ingrediente è scelto per la sua unicità, selezionato per lasciare un’impronta indelebile su chi lo assapora. È un mix perfetto di caratteri forti e distinti, proprio come il suo anti-eroe.</p>
 
