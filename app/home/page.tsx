@@ -9,22 +9,18 @@ import groovyMessage from '../../public/images/groovy-message.svg';
 import groovyStarSun from '../../public/images/groovy-star-sun.svg';
 import Game from "../components/game";
 import Testimonial from "../components/testimonial";
-import Circle from "../components/circle";
 import Ingredient from "../components/ingredient";
 
 export default function Home() {
     const section = {
-        hiddenLeft: {
+        hiddenBottom: {
             opacity: 0,
-            x: -100,
-        },
-        hiddenRight: {
-            opacity: 0,
-            x: 100,
+            y: 300,
         },
         visible: {
             opacity: 1,
             x: 0,
+            y: 0,
             transition: {
                 duration: 1
             }
@@ -50,7 +46,7 @@ export default function Home() {
                 <Image src={'/images/banner-amaurio.png'} width={1477} height={981} alt="Banner" />
             </div>
 
-            <motion.section className="bg-orange-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="storia" variants={section} initial="hiddenLeft" whileInView="visible" viewport={{ once: true }}>
+            <motion.section className="bg-orange-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="storia" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">La storia</h2>
                 <div className="flex flex-col md:flex-row gap-12">
                     <div className="md:w-2/3 text-justify">
@@ -83,7 +79,7 @@ export default function Home() {
                 <Image src={groovyStar} alt="Groovy Star" className="w-32 md:w-96 mx-auto hover:scale-110 transition-all duration-500" />
             </motion.div>
 
-            <motion.section className="bg-sky-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="ricetta" variants={section} initial="hiddenRight" whileInView="visible" viewport={{ once: true }}>
+            <motion.section className="bg-sky-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="ricetta" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">La Ricetta: Il segreto ribelle</h2>
                 <p className="mb-4 italic text-xl font-light"><span className="text-3xl">&quot;</span>Se c&apos;è una cosa che Amaurio sa fare bene, è farsi notare. Ti aspetti che sia un amaro qualsiasi? <span className="underline">Svegliati</span>.<span className="text-3xl">&quot;</span></p>
 
@@ -114,26 +110,14 @@ export default function Home() {
                 <Image src={groovySmiley} alt="Groovy Smile" className="w-32 md:w-96 mx-auto hover:scale-110 transition-all duration-500" />
             </motion.div>
 
-            <motion.section className="bg-violet-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="acquista" variants={section} initial="hiddenLeft" whileInView="visible" viewport={{ once: true }}>
+            <motion.section className="bg-violet-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="acquista" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Acquista</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div className="border border-black rounded-xl p-4 shadow-brutal bg-white">
                         <div className="h-72 bg-gray-300 rounded-lg mb-2"></div>
-                        <h3 className="text-lg font-bold font-outfit">Prodotto</h3>
-                        <p className="font-light mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie enim vitae sem facilisis aliquam.</p>
-                        <button type="button" className="bg-violet-500 text-white px-4 py-2 rounded-full font-semibold shadow-brutal shadow-black border border-black w-full hover:shadow-none transition-all duration-300">Compra ora</button>
-                    </div>
-                    <div className="border border-black rounded-xl p-4 shadow-brutal bg-white">
-                        <div className="h-72 bg-gray-300 rounded-lg mb-2"></div>
-                        <h3 className="text-lg font-bold  font-outfit">Prodotto</h3>
-                        <p className="font-light mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie enim vitae sem facilisis aliquam.</p>
-                        <button type="button" className="bg-violet-500 text-white px-4 py-2 rounded-full font-semibold shadow-brutal shadow-black border border-black w-full hover:shadow-none transition-all duration-300">Compra ora</button>
-                    </div>
-                    <div className="border border-black rounded-xl p-4 shadow-brutal bg-white">
-                        <div className="h-72 bg-gray-300 rounded-lg mb-2"></div>
-                        <h3 className="text-lg font-bold  font-outfit">Prodotto</h3>
-                        <p className="font-light mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie enim vitae sem facilisis aliquam.</p>
-                        <button type="button" className="bg-violet-500 text-white px-4 py-2 rounded-full font-semibold shadow-brutal shadow-black border border-black w-full hover:shadow-none transition-all duration-300">Compra ora</button>
+                        <h3 className="text-lg font-bold font-outfit">Amaro Amaurio</h3>
+                        <p className="font-light mb-4">Il nostro amaro</p>
+                        <button type="button" className="bg-violet-500 text-white px-4 py-2 rounded-full font-semibold shadow-brutal shadow-black border border-black w-full hover:shadow-none transition-all duration-300">Coming soon</button>
                     </div>
                 </div>
             </motion.section>
@@ -144,12 +128,12 @@ export default function Home() {
                 <Image src={groovyStarSun} alt="Groovy Star Sun" className="md:max-w-64 hover:scale-110 transition-all duration-500 mx-auto px-4" />
             </motion.div>
 
-            <motion.section className="bg-gray-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="gioca" variants={section} initial="hiddenLeft" whileInView="visible" viewport={{ once: true }}>
+            <motion.section className="bg-gray-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="gioca" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Gioca</h2>
                 <Game />
             </motion.section>
 
-            <motion.section className="bg-pink-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="gioca" variants={section} initial="hiddenLeft" whileInView="visible" viewport={{ once: true }}>
+            <motion.section className="bg-pink-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="gioca" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Dicono di noi</h2>
                 <div className="grid gap-4 md:grid-cols-4 md:gap-6">
                     <Testimonial gender="boy" name="Mario" />

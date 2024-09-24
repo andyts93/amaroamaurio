@@ -11,6 +11,7 @@ import Modal from "../components/modal";
 import Image from "next/image";
 import groovySmileFlower from "../../public/images/groovy-smile-flower.svg";
 import diagramma from "../../public/images/diagramma.svg";
+import { Providers } from "../providers";
 
 export default function RootLayout({
   children,
@@ -44,7 +45,7 @@ export default function RootLayout({
     };
 
   return (
-    <>
+    <Providers>
         <Modal open={modalOpen} onClose={setModalOpen}>
             <h3 className="text-3xl font-bold font-outfit bg-gradient-to-br from-yellow-500 to-pink-500 bg-clip-text text-transparent mb-4">Iscriviti alla nostra newsletter (?)</h3>
             <Image src={groovySmileFlower} alt="Groovy smile flower" className="w-32 mx-auto mb-4" />
@@ -62,7 +63,7 @@ export default function RootLayout({
             <h3 className="text-3xl font-bold font-outfit bg-gradient-to-br from-yellow-500 to-pink-500 bg-clip-text text-transparent mb-4 flex items-center">
                 Bevi responsabilmente
             </h3>
-            <p className="text-justify text-lg mb-4">Noi di <span className="font-chicle">Amaro Amaurio</span><sup>&reg;</sup> teniamo alla vostra salute, ecco delle semplici regole per gustarvi il nostro amaro.</p>
+            <p className="text-justify text-lg mb-4">Noi di <span className="font-theseasons">Amaro Amaurio</span><sup>&reg;</sup> teniamo alla vostra salute, ecco delle semplici regole per gustarvi il nostro amaro.</p>
             <Image src={diagramma} alt="Diagramma Amaurio" className="mx-auto" />
         </Modal>
         <div className="bg-[#fecb04] min-h-screen px-4 md:px-32 pt-6">
@@ -150,6 +151,6 @@ export default function RootLayout({
                 </div>
             </div>
         </footer>
-    </>
+    </Providers>
   );
 }
