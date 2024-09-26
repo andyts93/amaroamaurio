@@ -18,7 +18,7 @@ export default function Home() {
     const section = {
         hiddenBottom: {
             opacity: 0,
-            y: 300,
+            y: 100,
         },
         visible: {
             opacity: 1,

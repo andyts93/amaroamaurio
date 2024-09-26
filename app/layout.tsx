@@ -156,7 +156,7 @@ export default function RootLayout({
               Bevi responsabilmente
           </div>
           <footer className="border-t border-black bg-amber-100 px-4 md:px-32 py-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                   <div>
                       <h2 className="text-4xl font-bold uppercase mb-4 font-theseasons">Amaurio</h2>
                       <p>Se c’è una cosa che Amaurio sa fare bene, è farsi notare. Ti aspetti che sia un amaro qualsiasi? <span className="underline">Svegliati</span>.</p>
@@ -168,10 +168,16 @@ export default function RootLayout({
                       <p className="text-xs font-light">(o prova qui <a href="mailto:info@amaroamaurio.it">info@amaroamaurio.it</a>)</p>
                   </div>
                   <div>
+                    <h3 className="text-xl font-bold uppercase mb-4 font-outfit">Link inutili</h3>
+                    <ul>
+                        <li><Link href={'/privacy-policy'} className="hover:text-pink-500">Privacy policy</Link></li>
+                    </ul>
+                  </div>
+                  <div>
                       <h3 className="text-xl font-bold uppercase mb-4 font-outfit">Seguici</h3>
                       <div className="flex gap-4 text-6xl">
                           <Link href="https://www.instagram.com/amaroamaurio/" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Instagram" target="_blank" rel="nofollow"><LuInstagram /></Link>
-                          <Link href="#" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Tiktok"><TbBrandTiktok /></Link>
+                          <Link href="https://www.tiktok.com/@amaro.amaurio?_t=8q2rrg0V1N3&_r=1" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Tiktok" target="_blank" rel="nofollow"><TbBrandTiktok /></Link>
                       </div>
                   </div>
               </div>
