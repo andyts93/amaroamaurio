@@ -88,17 +88,18 @@ export default function RootLayout({
               </h3>
               <p className="text-justify text-lg mb-4">Noi di <span className="font-theseasons">Amaro Amaurio</span><sup>&reg;</sup> teniamo alla vostra salute, ecco delle semplici regole per gustarvi il nostro amaro.</p>
               <Image src={diagramma} alt="Diagramma Amaurio" className="mx-auto" />
+              <p className="mt-4 italic text-lg">Scherziamo, leggi <Link className="text-pink-500 hover:text-pink-700" href={'/bevi-responsabilmente'} onClick={() => setBeviModalOpen(false)}>qui</Link></p>
           </Modal>
           <div className="bg-[#fecb04] min-h-screen px-4 md:px-32 pt-6">
               <header className="mb-12">
                   <nav className="bg-[#fff97b] px-12 py-8 rounded-full border border-black shadow-brutal-md flex justify-between items-center">
                       <h1 className="text-4xl font-bold text-[#0a162a] uppercase font-theseasons">Amaurio</h1>
                       <ul className="hidden md:flex gap-6 font-light tracking-wider text-[#0a162a] text-xl">
-                          <li><a href="#home" aria-label="Homepage" className="hover:text-red-600 hover:font-bold transition-all duration-500">Home</a></li>
-                          <li><a href="#storia" aria-label="La storia" className="hover:text-red-600 hover:font-bold transition-all duration-500">La storia</a></li>
-                          <li><a href="#ricetta" aria-label="La ricetta" className="hover:text-red-600 hover:font-bold transition-all duration-500">La ricetta</a></li>
-                          <li><a href="#acquista" aria-label="Acquista" className="hover:text-red-600 hover:font-bold transition-all duration-500">Acquista</a></li>
-                          <li><a href="#gioca" aria-label="Gioca" className="hover:text-red-600 hover:font-bold transition-all duration-500">Gioca</a></li>
+                          <li><a href="/#home" aria-label="Homepage" className="hover:text-red-600 hover:font-bold transition-all duration-500">Home</a></li>
+                          <li><a href="/#storia" aria-label="La storia" className="hover:text-red-600 hover:font-bold transition-all duration-500">La storia</a></li>
+                          <li><a href="/#ricetta" aria-label="La ricetta" className="hover:text-red-600 hover:font-bold transition-all duration-500">La ricetta</a></li>
+                          <li><a href="/#acquista" aria-label="Acquista" className="hover:text-red-600 hover:font-bold transition-all duration-500">Acquista</a></li>
+                          <li><a href="/#gioca" aria-label="Gioca" className="hover:text-red-600 hover:font-bold transition-all duration-500">Gioca</a></li>
                       </ul>
                       <button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(true)} aria-label="Apri menu">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -114,23 +115,23 @@ export default function RootLayout({
                       <ul className="flex flex-col font-normal tracking-wider space-y-4 text-2xl">
                           <li className="flex items-center gap-2">
                               <LuHome />
-                              <a href="#home" aria-label="Homepage" onClick={() => setMobileMenuOpen(false)}>Home</a>
+                              <a href="/#home" aria-label="Homepage" onClick={() => setMobileMenuOpen(false)}>Home</a>
                           </li>
                           <li className="flex items-center gap-2">
                               <LuFootprints />
-                              <a href="#storia" aria-label="La storia" onClick={() => setMobileMenuOpen(false)}>La storia</a>
+                              <a href="/#storia" aria-label="La storia" onClick={() => setMobileMenuOpen(false)}>La storia</a>
                           </li>
                           <li className="flex items-center gap-2">
                               <LuChefHat />
-                              <a href="#ricetta" aria-label="La ricetta" onClick={() => setMobileMenuOpen(false)}>La ricetta</a>
+                              <a href="/#ricetta" aria-label="La ricetta" onClick={() => setMobileMenuOpen(false)}>La ricetta</a>
                           </li>
                           <li className="flex items-center gap-2">
                               <LuShoppingBag />
-                              <a href="#acquista" aria-label="Acquista" onClick={() => setMobileMenuOpen(false)}>Acquista</a>
+                              <a href="/#acquista" aria-label="Acquista" onClick={() => setMobileMenuOpen(false)}>Acquista</a>
                           </li>
                           <li className="flex items-center gap-2">
                               <LuGamepad2 />
-                              <a href="#gioca" aria-label="Gioca" onClick={() => setMobileMenuOpen(false)}>Gioca</a>
+                              <a href="/#gioca" aria-label="Gioca" onClick={() => setMobileMenuOpen(false)}>Gioca</a>
                           </li>
                       </ul>
                   </nav>
