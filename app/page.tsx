@@ -140,10 +140,10 @@ export default function Home() {
             <motion.section className="bg-pink-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="gioca" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Dicono di noi</h2>
                 <div className="grid gap-4 md:grid-cols-4 md:gap-6">
-                    <Testimonial gender="boy" name="Mario" />
-                    <Testimonial gender="boy" name="Piero" />
-                    <Testimonial gender="girl" name="Maria" />
-                    <Testimonial gender="girl" name="Piera" />
+                    <Testimonial image="/images/matteo.jpg" name="Matteo" content={'Un giorno mentre bevevo un Amaurio, un ragazzo con i capelli raccolti e gli occhiali mi vide e mi chiese \'E\' un Amaurio quello?\'. Io annuii, mi diede uno schiaffo e disse \'Bravo\'. Non so chi fosse, ma ne presi un altro.'}/>
+                    <Testimonial image="/images/piero.jpg" name="Piero" content={'Mi hanno chiesto di fare da testimonial per l\'Amaro Amaro..Amario..Amauro. Boh vabè, buono, \'sti soldi?'}/>
+                    <Testimonial image="/images/liliana.jpg" name="Liliana" content={'Di solito non bevo amari perché non mi piacciono... Infatti non mi piace nemmeno questo. Non so, si può dire? Che devo fà?'}/>
+                    <Testimonial image="/images/jenny.jpg" name="Jenny" content={'Una ragazza bionda mi ha fermato per strada offrendomi un amaro. Non capivo se stesse scherzando o meno, ma sembrava molto convincente. L\'ho bevuto, poi ne ho presa una cassa. E un suo videocorso sul marketing digitale. E le ho dato il mio cane. Oh, è brava.'}/>
                 </div>
             </motion.section>
         </>

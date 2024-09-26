@@ -16,6 +16,7 @@ import groovySmileFlower from "../public/images/groovy-smile-flower.svg";
 import diagramma from "../public/images/diagramma.svg";
 import { Providers } from "./providers";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { BiDrink } from "react-icons/bi";
 
 const chicle = Chicle({ weight: '400', subsets: ['latin'], variable: '--font-chickle' });
 const jost = Jost({ subsets: ['latin'], variable: '--font-jost' });
@@ -100,6 +101,7 @@ export default function RootLayout({
                           <li><a href="/#ricetta" aria-label="La ricetta" className="hover:text-red-600 hover:font-bold transition-all duration-500">La ricetta</a></li>
                           <li><a href="/#acquista" aria-label="Acquista" className="hover:text-red-600 hover:font-bold transition-all duration-500">Acquista</a></li>
                           <li><a href="/#gioca" aria-label="Gioca" className="hover:text-red-600 hover:font-bold transition-all duration-500">Gioca</a></li>
+                          <li><Link href={'/bevi-responsabilmente'} aria-label="Bevi responsabilmente" className="hover:text-red-600 hover:font-bold transition-all duration-500">Bevi responsabilmente</Link></li>
                       </ul>
                       <button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(true)} aria-label="Apri menu">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -132,6 +134,10 @@ export default function RootLayout({
                           <li className="flex items-center gap-2">
                               <LuGamepad2 />
                               <a href="/#gioca" aria-label="Gioca" onClick={() => setMobileMenuOpen(false)}>Gioca</a>
+                          </li>
+                          <li className="flex items-center gap-2">
+                              <BiDrink />
+                              <Link href="/bevi-responsabilmente" aria-label="Bevi responsabilmente" onClick={() => setMobileMenuOpen(false)}>Bevi responsabilmente</Link>
                           </li>
                       </ul>
                   </nav>
