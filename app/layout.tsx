@@ -48,6 +48,7 @@ export default function RootLayout({
     const [beviModalOpen, setBeviModalOpen] = useState(false);
     const [adBlockerModalOpen, setAdBlockerModalOpen] = useState(false);
     const isAdBlocked = useDetectAdblock();
+    const [maggiorenne, setMaggiorenne] = useState<boolean | null>(null);
 
     useEffect(() => {
         if (!getCookie('cookieBanner')) {
@@ -57,6 +58,7 @@ export default function RootLayout({
             setModalOpen(true);
             setCookie('newsletterModal', 'seen', { maxAge: 60 * 60 * 24 * 7 });
         }
+        setMaggiorenne(Boolean(getCookie('maggiorenne')));
     }, []);
 
     useEffect(() => {
@@ -72,6 +74,11 @@ export default function RootLayout({
             setFakeAccepted(true);
         }
     };
+
+    const sonoMaggiorenne = () => {
+        setMaggiorenne(true);
+        setCookie('maggiorenne', true, { maxAge: 60 * 60 * 24 * 365 });
+    }
   return (
     <html lang="en">
       <head>
@@ -79,6 +86,18 @@ export default function RootLayout({
       </head>
       <body className={`${chicle.variable} ${jost.variable} ${outfit.variable} ${theSeasons.variable}`}>
         <Providers>
+            {maggiorenne === null ? <></> : !maggiorenne ? (
+          <div className="bg-gray-900 bg-opacity-90 backdrop-blur md:backdrop-blur-xl fixed top-0 w-full h-screen bottom-0 z-[100] flex items-center justify-center px-6">
+            <div className="flex flex-col items-center gap-4">
+                <Image src={'/images/logo-amaurio-alt.png'} width={942} height={943} alt="Logo Amaurio" className="w-64" />
+                <h1 className="text-5xl md:text-6xl text-yellow-500">Che ce li hai 18 anni?</h1>
+                <p className="text-sm text-white font-light text-center">(No serio, se li hai scrivici perché ci serve un maggiorenne che ci faccia da garante)</p>
+                <div className="flex justify-between gap-4">
+                    <a href="https://www.gazzettaufficiale.it/atto/regioni/caricaArticolo?art.progressivo=0&art.idArticolo=6&art.versione=1&art.codiceRedazionale=006R0302&art.dataPubblicazioneGazzetta=2006-06-24&art.idGruppo=0&art.idSottoArticolo=1#:~:text=E'%20vietata%20la%20somministrazione%20e,gli%20esercizi%20commerciali%20nonche'%20in" className="bg-red-500 px-4 py-1 rounded-full text-white disabled:opacity-50">Pass (<small>vuol dire no</small>)</a>
+                    <button className="bg-green-500 px-4 py-1 rounded-full text-white" onClick={() => sonoMaggiorenne()}>Smash (<small>vuol dire si</small>)</button>
+                </div>
+            </div>
+          </div>) : (<>
           <Modal open={modalOpen} onClose={setModalOpen}>
               <h3 className="text-3xl font-bold font-outfit bg-gradient-to-br from-yellow-500 to-pink-500 bg-clip-text text-transparent mb-4">Iscriviti alla nostra newsletter (?)</h3>
               <Image src={groovySmileFlower} alt="Groovy smile flower" className="w-32 mx-auto mb-4" />
@@ -208,7 +227,7 @@ export default function RootLayout({
                     </div>
                   </div>
               </div>
-          </footer>
+          </footer></>)}
       </Providers>
       <SpeedInsights />
       </body>
