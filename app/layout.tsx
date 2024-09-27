@@ -17,6 +17,7 @@ import diagramma from "../public/images/diagramma.svg";
 import { Providers } from "./providers";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { BiDrink } from "react-icons/bi";
+import Script from 'next/script'
 
 const chicle = Chicle({ weight: '400', subsets: ['latin'], variable: '--font-chickle' });
 const jost = Jost({ subsets: ['latin'], variable: '--font-jost' });
@@ -191,6 +192,7 @@ export default function RootLayout({
       </Providers>
       <SpeedInsights />
       </body>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js"  />
     </html>
   );
 }
