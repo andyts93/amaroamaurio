@@ -17,7 +17,9 @@ import diagramma from "../public/images/diagramma.svg";
 import { Providers } from "./providers";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { BiDrink } from "react-icons/bi";
-import Script from 'next/script'
+import Script from 'next/script';
+import useDetectAdblock from "./hooks/use-detect-adblocker";
+import groovyStupidSmile from "../public/images/groovy-stupid-smile.svg";
 
 const chicle = Chicle({ weight: '400', subsets: ['latin'], variable: '--font-chickle' });
 const jost = Jost({ subsets: ['latin'], variable: '--font-jost' });
@@ -44,6 +46,8 @@ export default function RootLayout({
     const [fakeAccepted, setFakeAccepted] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [beviModalOpen, setBeviModalOpen] = useState(false);
+    const [adBlockerModalOpen, setAdBlockerModalOpen] = useState(false);
+    const isAdBlocked = useDetectAdblock();
 
     useEffect(() => {
         if (!getCookie('cookieBanner')) {
@@ -54,6 +58,10 @@ export default function RootLayout({
             setCookie('newsletterModal', 'seen', { maxAge: 60 * 60 * 24 * 7 });
         }
     }, []);
+
+    useEffect(() => {
+        setAdBlockerModalOpen(isAdBlocked);
+    }, [isAdBlocked]);
 
     const acceptCookies = (real: boolean = false) => {
         if (real) {
@@ -88,9 +96,18 @@ export default function RootLayout({
               <h3 className="text-3xl font-bold font-outfit bg-gradient-to-br from-yellow-500 to-pink-500 bg-clip-text text-transparent mb-4 flex items-center">
                   Bevi responsabilmente
               </h3>
-              <p className="text-justify text-lg mb-4">Noi di <span className="font-theseasons">Amaro Amaurio</span><sup>&reg;</sup> teniamo alla vostra salute, ecco delle semplici regole per gustarvi il nostro amaro.</p>
+              <p className="text-justify mb-4">Noi di <span className="font-theseasons">Amaro Amaurio</span><sup>&reg;</sup> teniamo alla vostra salute, ecco delle semplici regole per gustarvi il nostro amaro.</p>
               <Image src={diagramma} alt="Diagramma Amaurio" className="mx-auto" />
-              <p className="mt-4 italic text-lg">Scherziamo, leggi <Link className="text-pink-500 hover:text-pink-700" href={'/bevi-responsabilmente'} onClick={() => setBeviModalOpen(false)}>qui</Link></p>
+              <p className="mt-4 italic">Scherziamo, leggi <Link className="text-pink-500 hover:text-pink-700" href={'/bevi-responsabilmente'} onClick={() => setBeviModalOpen(false)}>qui</Link></p>
+          </Modal>
+          <Modal open={adBlockerModalOpen} onClose={setAdBlockerModalOpen}>
+            <h3 className="text-3xl font-bold font-outfit bg-gradient-to-br from-yellow-500 to-pink-500 bg-clip-text text-transparent mb-4 flex items-center">
+                Ti credi furbo?
+            </h3>
+            <Image src={groovyStupidSmile} alt="Groovy stupid smile" className="w-32 mx-auto mb-4" />
+            <p className="text-lg mb-4 text-justify">Blocchiamo le pubblicità qui? Abbiamo bisogno di sapere tutto su di te e sui tuoi desideri più profondi. <strong>Disabilita l&apos;AdBlocker</strong>, forza.</p>
+            <p className="text-sm mb-4 text-justify">Se sei noioso lascia stare, non vogliamo sapere altro, cazzo vattene da qui.</p>
+            <button className="bg-green-500 border border-black text-white px-4 py-2 rounded-full shadow-brutal-sm shadow-black uppercase w-full" onClick={() => setAdBlockerModalOpen(false)}>Non sono noioso</button>
           </Modal>
           <div className="bg-[#fecb04] min-h-screen px-4 md:px-32 pt-6">
               <header className="mb-12">
@@ -186,6 +203,9 @@ export default function RootLayout({
                           <Link href="https://www.instagram.com/amaroamaurio/" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Instagram" target="_blank" rel="nofollow"><LuInstagram /></Link>
                           <Link href="https://www.tiktok.com/@amaro.amaurio?_t=8q2rrg0V1N3&_r=1" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Tiktok" target="_blank" rel="nofollow"><TbBrandTiktok /></Link>
                       </div>
+                      <div className="mt-4">
+                        <picture><source srcSet="https://simpleanalyticsbadges.com/amaroamaurio.it?mode=dark" media="(prefers-color-scheme: dark)" /><img src="https://simpleanalyticsbadges.com/amaroamaurio.it?background=rgb(254,203,4)&text=black" loading="lazy" referrerPolicy="no-referrer" crossOrigin="anonymous" alt="Website stats"/></picture>
+                    </div>
                   </div>
               </div>
           </footer>
