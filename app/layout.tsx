@@ -218,6 +218,7 @@ export default function RootLayout({
                   </div>
                   <div>
                       <h3 className="text-xl font-bold uppercase mb-4 font-outfit">Seguici</h3>
+                      <p className="font-light text-sm mb-4">Seguiteci, mettete like, condividete! Otterrete qualcosa in cambio? No, però raga dai fatelo.</p>
                       <div className="flex gap-4 text-6xl">
                           <Link href="https://www.instagram.com/amaroamaurio/" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Instagram" target="_blank" rel="nofollow"><LuInstagram /></Link>
                           <Link href="https://www.tiktok.com/@amaro.amaurio?_t=8q2rrg0V1N3&_r=1" className="hover:text-pink-500 transition-all duration-300 cursor-pointer" aria-label="Tiktok" target="_blank" rel="nofollow"><TbBrandTiktok /></Link>
