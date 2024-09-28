@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
         });
 
         return NextResponse.json({ message: "Email registrata" });
-    } catch (error) {
-        return NextResponse.json({ message: "Email non registrata, riprovare" }, { status: 500 });
+    } catch (error: any) {
+        return NextResponse.json({ message: error.message }, { status: 500 });
     }
 }
