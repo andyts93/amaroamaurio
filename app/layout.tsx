@@ -20,6 +20,7 @@ import { BiDrink } from "react-icons/bi";
 import Script from 'next/script';
 import useDetectAdblock from "./hooks/use-detect-adblocker";
 import groovyStupidSmile from "../public/images/groovy-stupid-smile.svg";
+import { Toaster } from "react-hot-toast";
 
 const chicle = Chicle({ weight: '400', subsets: ['latin'], variable: '--font-chickle' });
 const jost = Jost({ subsets: ['latin'], variable: '--font-jost' });
@@ -86,6 +87,7 @@ export default function RootLayout({
       </head>
       <body className={`${chicle.variable} ${jost.variable} ${outfit.variable} ${theSeasons.variable}`}>
         <Providers>
+            <Toaster position="top-center"/>
             {maggiorenne === null ? <></> : !maggiorenne ? (
           <div className="bg-gray-900 bg-opacity-90 backdrop-blur md:backdrop-blur-xl fixed top-0 w-full h-screen bottom-0 z-[100] flex items-center justify-center px-6">
             <div className="flex flex-col items-center gap-4">

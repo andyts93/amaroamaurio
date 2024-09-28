@@ -10,11 +10,21 @@ import groovyStarSun from '../public/images/groovy-star-sun.svg';
 import Game from "./components/game";
 import Testimonial from "./components/testimonial";
 import Ingredient from "./components/ingredient";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
+import ProductGallery from "./components/product-gallery";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-const BuyButton = dynamic(() => import('./components/buy-button'), { ssr: false });
+// const BuyButton = dynamic(() => import('./components/buy-button'), { ssr: false });
 
 export default function Home() {
+    const [email, setEmail] = useState<string>('');
+    const [privacy, setPrivacy] = useState<boolean>(false);
+    const [emailError, setEmailError] = useState<string>('');
+    const [privacyError, setPrivacyError] = useState<string>('');
+    const [subscribeLoader, setSubscribeLoader] = useState<boolean>(false);
+
     const section = {
         hiddenBottom: {
             opacity: 0,
@@ -41,6 +51,52 @@ export default function Home() {
             transition: {
                 duration: 1
             }
+        }
+    }
+
+    const validateEmail = (email: string) => {
+        return String(email)
+          .toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          );
+      };
+
+    const subscribe = async () => {
+        if (!email) {
+            setEmailError('Se non la compili dove la mandiamo la mail?');
+            return;
+        }
+        if (!validateEmail(email)) {
+            setEmailError('Inserisci una mail valida');
+        }
+        if (!privacy) {
+            setPrivacyError('Devi accettare la privacy');
+            return;
+        }
+
+        setSubscribeLoader(true);
+        try {
+            const response = await fetch('/api/preorder', {
+                method: 'POST',
+                body: JSON.stringify({ email }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            setSubscribeLoader(false);
+
+            const json = await response.json();
+            if (response.ok) {
+                toast.success(json.message);
+                setEmail('');
+                setPrivacy(false);
+            }
+            else {
+                toast.error(json.message);
+            }
+        } catch (error) {
+            toast.error("Si è verificato un errore");
         }
     }
     return (
@@ -115,7 +171,22 @@ export default function Home() {
 
             <motion.section className="bg-violet-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="acquista" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Acquista</h2>
-                <BuyButton />
+                <div className="grid md:grid-cols-2 gap-4">
+                    <ProductGallery images={['/images/product/front.jpg', '/images/product/back.jpg']} />
+                    <div className="mt-4">
+                        <p className="text-2xl mb-4 font-light"><span className="font-theseasons">Amaro Amaurio</span> è in produzione e sarà presto disponibile alla vendita.</p>
+                        <p className="text-2xl font-light">Nell&apos;attesa, oltre che piangere, potete lasciarci la vostra e-mail per essere avvisati non appena sarà disponibile.</p>
+                        <input type="email" placeholder="Inserisci la tua e-mail" className={`w-full border border-black rounded-xl p-2 mt-4 ${emailError ? 'border-red-500' : ''}`} value={email} onChange={e => {setEmail(e.target.value); setEmailError('')}}/>
+                        {emailError && (<p className="text-red-500 text-sm font-semibold mt-1">{emailError}</p>)}
+                        <label className="block">
+                            <input type="checkbox" id="privacy" className="ml-1 mr-2 mt-2" checked={privacy} onChange={e => {setPrivacy(e.target.checked); setPrivacyError('')}}/>
+                             Acconsento a ricevere e-mail promozionali da Amaurio
+                        </label>
+                        {privacyError && (<p className="text-red-500 text-sm font-semibold mt-1">{privacyError}</p>)}
+
+                        <button className="bg-purple-500 text-white rounded-full px-4 py-2 border border-black shadow-brutal-sm shadow-black hover:shadow-none mt-2 w-full disabled:pointer-events-none flex items-center justify-center gap-2 disabled:opacity-70" onClick={() => subscribe()} disabled={subscribeLoader}>{subscribeLoader && (<AiOutlineLoading3Quarters className="animate-spin" />)} Avvisami</button>
+                    </div>
+                </div>
             </motion.section>
 
             <motion.div variants={divider} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-8 grid grid-cols-3 md:gap-12 overflow-hidden" id="gioca">
