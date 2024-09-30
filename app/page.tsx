@@ -172,7 +172,7 @@ export default function Home() {
             <motion.section className="bg-violet-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="acquista" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Acquista</h2>
                 <div className="grid md:grid-cols-2 gap-4">
-                    <ProductGallery images={['/images/product/front.jpg', '/images/product/back.jpg']} />
+                    <ProductGallery images={['/images/product/front.jpg']} />
                     <div className="mt-4">
                         <p className="text-2xl mb-4 font-light"><span className="font-theseasons">Amaro Amaurio</span> è in produzione e sarà presto disponibile alla vendita.</p>
                         <p className="text-2xl font-light">Nell&apos;attesa, oltre che piangere, potete lasciarci la vostra e-mail per essere avvisati non appena sarà disponibile.</p>
