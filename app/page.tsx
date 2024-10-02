@@ -15,6 +15,7 @@ import ProductGallery from "./components/product-gallery";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Script from "next/script";
 
 // const BuyButton = dynamic(() => import('./components/buy-button'), { ssr: false });
 
@@ -24,6 +25,8 @@ export default function Home() {
     const [emailError, setEmailError] = useState<string>('');
     const [privacyError, setPrivacyError] = useState<string>('');
     const [subscribeLoader, setSubscribeLoader] = useState<boolean>(false);
+    const [complaintMessageVisible, setComplaintMessageVisible] = useState<boolean>(false);
+    const [complaintName, setComplaintName] = useState<string>('');
 
     const section = {
         hiddenBottom: {
@@ -200,7 +203,7 @@ export default function Home() {
                 <Game />
             </motion.section>
 
-            <motion.section className="bg-pink-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="gioca" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
+            <motion.section className="bg-pink-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="testimonials" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Dicono di noi</h2>
                 <div className="grid gap-4 md:grid-cols-4 md:gap-6">
                     <Testimonial image="/images/matteo.jpg" name="Matteo" content={'Un giorno mentre bevevo un Amaurio, un ragazzo con i capelli raccolti e gli occhiali mi vide e mi chiese \'E\' un Amaurio quello?\'. Io annuii, mi diede uno schiaffo e disse \'Bravo\'. Non so chi fosse, ma ne presi un altro.'}/>
@@ -209,6 +212,35 @@ export default function Home() {
                     <Testimonial image="/images/jenny.jpg" name="Jenny" content={'Una ragazza bionda mi ha fermato per strada offrendomi un amaro. Non capivo se stesse scherzando o meno, ma sembrava molto convincente. L\'ho bevuto, poi ne ho presa una cassa. E un suo videocorso sul marketing digitale. E le ho dato il mio cane. Oh, è brava.'}/>
                 </div>
             </motion.section>
+
+            <motion.section className="bg-gray-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="lamentele" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
+                <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Lamentele</h2>
+                <p className="mb-1">Hai delle lamentele riguardanti la nostra comunicazione o ti senti offeso da qualcosa che abbiamo detto o scritto? <small>(non riguardo al prodotto, ovviamente)</small></p>
+                <p className="mb-4">Compila il form qui sotto, sarà nostra premura risponderti e scusarci per l&apos;accaduto.</p>
+                <div className="flex flex-col">
+                    <label htmlFor="complaint-name" className="mb-1 font-semibold text-sm">Nome</label>
+                    <input type="text" id="complaint-name" placeholder="Inserisci il tuo nome" className="border border-black rounded-xl p-2 mb-2" value={complaintName} onChange={e => setComplaintName(e.target.value)}/>
+                </div>
+                <div className="flex flex-col">
+                    <label htmlFor="complaint-text" className="mb-1 font-semibold text-sm">Lamentela</label>
+                    <textarea className="border border-black rounded-xl p-2 mb-2 resize-none h-24" placeholder="Scrivi qui la tua lamentela" />
+                </div>
+                <div className="flex flex-col items-end">
+                    <button className="bg-green-500 text-white rounded-full px-12 py-2 border border-black shadow-brutal-sm shadow-black hover:shadow-none mt-2 disabled:opacity-50" onClick={() => setComplaintMessageVisible(true)} disabled={!complaintName}>Invia</button>
+                    {complaintMessageVisible && (<p className="mt-2 text-red-500">Il bottone non funziona, <b>{complaintName}</b>? <u>Lamentati</u> usando il form qui sopra, <span className="text-transparent bg-gradient-to-r from-red-500 to-transparent bg-clip-text"><b>fenomeno</b></span></p>)}
+                </div>
+            </motion.section>
+
+            {/* <motion.section className="bg-white rounded-xl p-6 shadow-brutal border border-black mt-8" id="community" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
+                <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Community</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                    <blockquote className="tiktok-embed" cite="https://www.tiktok.com/tag/amaroamaurio" data-tag-id="amaroamaurio" data-embed-from="embed_page" data-embed-type="tag"> <section> <a target="_blank" href="https://www.tiktok.com/tag/amaroamaurio?refer=hashtag_embed">#amaroamaurio</a> </section> </blockquote>
+                    <div className="elfsight-app-3f83d230-375c-4ba8-a8eb-562c29c75d0e" data-elfsight-app-lazy></div>
+                </div>
+            </motion.section>
+
+            <Script src={'https://www.tiktok.com/embed.js'} async={true} />
+            <Script src={'https://static.elfsight.com/platform/platform.js'} async={true} /> */}
         </>
     );
 }
