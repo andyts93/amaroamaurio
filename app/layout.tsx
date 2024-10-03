@@ -142,7 +142,7 @@ export default function RootLayout({
                           <li><a href="/#ricetta" aria-label="La ricetta" className="hover:text-red-600 hover:font-bold transition-all duration-500">La ricetta</a></li>
                           <li><a href="/#acquista" aria-label="Acquista" className="hover:text-red-600 hover:font-bold transition-all duration-500">Acquista</a></li>
                           <li><a href="/#gioca" aria-label="Gioca" className="hover:text-red-600 hover:font-bold transition-all duration-500">Gioca</a></li>
-                          <li><a href="/#testonials" aria-label="Testimonials" className="hover:text-red-600 hover:font-bold transition-all duration-500">Dicono di noi</a></li>
+                          <li><a href="/#testimonials" aria-label="Testimonials" className="hover:text-red-600 hover:font-bold transition-all duration-500">Dicono di noi</a></li>
                           <li><a href="/#lamentele" aria-label="Lamentati" className="hover:text-red-600 hover:font-bold transition-all duration-500">Lamentati</a></li>
                           <li><Link href={'/bevi-responsabilmente'} aria-label="Bevi responsabilmente" className="hover:text-red-600 hover:font-bold transition-all duration-500">Bevi responsabilmente</Link></li>
                       </ul>
