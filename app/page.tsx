@@ -227,7 +227,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col items-end">
                     <button className="bg-green-500 text-white rounded-full px-12 py-2 border border-black shadow-brutal-sm shadow-black hover:shadow-none mt-2 disabled:opacity-50" onClick={() => setComplaintMessageVisible(true)} disabled={!complaintName}>Invia</button>
-                    {complaintMessageVisible && (<p className="mt-2 text-red-500">Il bottone non funziona, <b>{complaintName}</b>? <u>Lamentati</u> usando il form qui sopra, <span className="text-transparent bg-gradient-to-r from-red-500 to-transparent bg-clip-text"><b>fenomeno</b></span></p>)}
+                    {complaintMessageVisible && complaintName && (<p className="mt-2 text-red-500">Il bottone non funziona, <b>{complaintName}</b>? <u>Lamentati</u> usando il form qui sopra, <span className="text-transparent bg-gradient-to-r from-red-500 to-transparent bg-clip-text"><b>fenomeno</b></span></p>)}
                 </div>
             </motion.section>
 

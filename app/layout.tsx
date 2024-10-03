@@ -21,6 +21,8 @@ import Script from 'next/script';
 import useDetectAdblock from "./hooks/use-detect-adblocker";
 import groovyStupidSmile from "../public/images/groovy-stupid-smile.svg";
 import { Toaster } from "react-hot-toast";
+import { GoPeople } from "react-icons/go";
+import { GrAnnounce } from "react-icons/gr";
 
 const chicle = Chicle({ weight: '400', subsets: ['latin'], variable: '--font-chickle' });
 const jost = Jost({ subsets: ['latin'], variable: '--font-jost' });
@@ -134,12 +136,14 @@ export default function RootLayout({
               <header className="mb-12">
                   <nav className="bg-[#fff97b] px-12 py-8 rounded-full border border-black shadow-brutal-md flex justify-between items-center">
                       <h1 className="text-4xl font-bold text-[#0a162a] uppercase font-theseasons">Amaurio</h1>
-                      <ul className="hidden md:flex gap-6 font-light tracking-wider text-[#0a162a] text-xl">
+                      <ul className="hidden md:flex gap-6 font-light tracking-wider text-[#0a162a] text-lg">
                           <li><a href="/#home" aria-label="Homepage" className="hover:text-red-600 hover:font-bold transition-all duration-500">Home</a></li>
                           <li><a href="/#storia" aria-label="La storia" className="hover:text-red-600 hover:font-bold transition-all duration-500">La storia</a></li>
                           <li><a href="/#ricetta" aria-label="La ricetta" className="hover:text-red-600 hover:font-bold transition-all duration-500">La ricetta</a></li>
                           <li><a href="/#acquista" aria-label="Acquista" className="hover:text-red-600 hover:font-bold transition-all duration-500">Acquista</a></li>
                           <li><a href="/#gioca" aria-label="Gioca" className="hover:text-red-600 hover:font-bold transition-all duration-500">Gioca</a></li>
+                          <li><a href="/#testonials" aria-label="Testimonials" className="hover:text-red-600 hover:font-bold transition-all duration-500">Dicono di noi</a></li>
+                          <li><a href="/#lamentele" aria-label="Lamentati" className="hover:text-red-600 hover:font-bold transition-all duration-500">Lamentati</a></li>
                           <li><Link href={'/bevi-responsabilmente'} aria-label="Bevi responsabilmente" className="hover:text-red-600 hover:font-bold transition-all duration-500">Bevi responsabilmente</Link></li>
                       </ul>
                       <button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(true)} aria-label="Apri menu">
@@ -173,6 +177,14 @@ export default function RootLayout({
                           <li className="flex items-center gap-2">
                               <LuGamepad2 />
                               <a href="/#gioca" aria-label="Gioca" onClick={() => setMobileMenuOpen(false)}>Gioca</a>
+                          </li>
+                          <li className="flex items-center gap-2">
+                              <GoPeople />
+                              <Link href="/#testimonials" aria-label="Testimonials" onClick={() => setMobileMenuOpen(false)}>Dicono di  noi</Link>
+                          </li>
+                          <li className="flex items-center gap-2">
+                              <GrAnnounce />
+                              <Link href="/#lamentele" aria-label="Lamentele" onClick={() => setMobileMenuOpen(false)}>Lamentati</Link>
                           </li>
                           <li className="flex items-center gap-2">
                               <BiDrink />
