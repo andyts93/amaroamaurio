@@ -23,6 +23,7 @@ import groovyStupidSmile from "../public/images/groovy-stupid-smile.svg";
 import { Toaster } from "react-hot-toast";
 import { GoPeople } from "react-icons/go";
 import { GrAnnounce } from "react-icons/gr";
+import { Analytics } from "@vercel/analytics/react"
 
 const chicle = Chicle({ weight: '400', subsets: ['latin'], variable: '--font-chickle' });
 const jost = Jost({ subsets: ['latin'], variable: '--font-jost' });
@@ -245,6 +246,7 @@ export default function RootLayout({
           </footer></>)}
       </Providers>
       <SpeedInsights />
+      <Analytics/>
       </body>
       <Script src="https://scripts.simpleanalyticscdn.com/latest.js"  />
     </html>
