@@ -87,6 +87,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Amaro Amaurio</title>
+        <meta name="description" content="Amaurio non è solo un amaro ma un modo di essere, di dire no a ciò che è scontato, di vivere con passione e intensità. Amaurio è il compagno perfetto per notti lunghe e discorsi profondi, per risate sincere e silenzi condivisi. È il simbolo di una generazione che non si accontenta della banalità." />
       </head>
       <body className={`${chicle.variable} ${jost.variable} ${outfit.variable} ${theSeasons.variable}`}>
         <Providers>
