@@ -24,6 +24,7 @@ import { Toaster } from "react-hot-toast";
 import { GoPeople } from "react-icons/go";
 import { GrAnnounce } from "react-icons/gr";
 import { Analytics } from "@vercel/analytics/react"
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const chicle = Chicle({ weight: '400', subsets: ['latin'], variable: '--font-chickle' });
 const jost = Jost({ subsets: ['latin'], variable: '--font-jost' });
@@ -248,6 +249,7 @@ export default function RootLayout({
       </Providers>
       <SpeedInsights />
       <Analytics/>
+      <GoogleAnalytics gaId="G-QT17F0BC6Y" />
       </body>
       <Script src="https://scripts.simpleanalyticscdn.com/latest.js"  />
     </html>
