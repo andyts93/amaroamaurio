@@ -6,7 +6,7 @@ import ShopifyBuy from "@shopify/buy-button-js";
 export default function BuyButton() {
   function ShopifyBuyInit() {
     var client = ShopifyBuy.buildClient({
-      domain: '19f91b-f2.myshopify.com',
+      domain: 'shop.amaroamaurio.it',
       storefrontAccessToken: 'fa9552497768727c604b1bff2c2059c7',
     });
     var ui = ShopifyBuy.UI.init(client);
