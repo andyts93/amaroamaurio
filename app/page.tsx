@@ -175,7 +175,8 @@ export default function Home() {
 
             <motion.section className="bg-violet-100 rounded-xl p-6 shadow-brutal border border-black mt-8" id="acquista" variants={section} initial="hiddenBottom" whileInView="visible" viewport={{ once: true }}>
                 <h2 className="text-3xl font-bold tracking-wider mb-4 uppercase">Acquista</h2>
-                <BuyButton />
+                <BuyButton nodeId="product-01" productId={9812886749530}/>
+                <BuyButton nodeId="product-02" productId={10057197289818}/>
             </motion.section>
 
             <motion.div variants={divider} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-8 grid grid-cols-3 md:gap-12 overflow-hidden" id="gioca">

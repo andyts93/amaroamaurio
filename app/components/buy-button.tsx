@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import ShopifyBuy from "@shopify/buy-button-js";
 
-export default function BuyButton() {
+export default function BuyButton({ nodeId, productId }: { nodeId: string, productId: number }) {
   function ShopifyBuyInit() {
     var client = ShopifyBuy.buildClient({
       domain: 'shop.amaroamaurio.it',
@@ -11,8 +11,8 @@ export default function BuyButton() {
     });
     var ui = ShopifyBuy.UI.init(client);
       ui.createComponent('product', {
-        id: '9812886749530',
-        node: document.getElementById('product-component-1727271517970'),
+        id: productId,
+        node: document.getElementById(nodeId),
         moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
         options: {
   "product": {
@@ -169,5 +169,5 @@ export default function BuyButton() {
     ShopifyBuyInit();
   }, []);
 
-    return (<div id='product-component-1727271517970'></div>)
+    return (<div id={nodeId}></div>)
 }
